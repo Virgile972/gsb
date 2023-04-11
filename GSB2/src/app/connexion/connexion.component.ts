@@ -1,6 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { takeUntil } from 'rxjs';
+import { ConnectableObservable, takeUntil } from 'rxjs';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -14,9 +16,9 @@ export class ConnexionComponent implements OnInit {
   mdp: string="";
   estCache: boolean=true;
   lblMessage:string="";
+  visiteur : any ;
 
-
-  constructor(private router : Router) { 
+  constructor(private router : Router, private dataService :DataService) { 
     
   }
   
@@ -24,6 +26,30 @@ export class ConnexionComponent implements OnInit {
     
   }
   valider() : void{
+ this.dataService.connexion(this.login,this.mdp).subscribe({
+  next : (data) =>{
+    this.visiteur =data;
+    this.dataService.visiteur =data;
+    console.log(data);
+    console.log("vi" +  JSON.stringify(this.visiteur));
+    console.log("vi2" +JSON.stringify(this.dataService.visiteur));
+    this.router.navigate(['accueil']);
+
+    this.lblMessage = "";
+    this.estCache = true ;
+
+  },
+error :(error) =>{
+ console.log("error :",JSON.stringify(error));
+ console.log("error");
+ this.lblMessage = "votre identifiant ou mot de passe est incorrecte ";
+ this.estCache =false;
+}
+
+
+ })
+
+
     if(this.login !="toto" || this.mdp !="titi")
     console.log("ok");
     else
@@ -31,3 +57,7 @@ export class ConnexionComponent implements OnInit {
   }
 
 }
+function subscribe(arg0: any[]) {
+  throw new Error('Function not implemented.');
+}
+

@@ -1,7 +1,7 @@
 <h1>
     {{titre}}
 </h1>
-<form class="col-lg-6" name="frmLogin" >
+<form class="col-lg-6" name="frmLogin" (ngSubmit)="valider()" >
     <div class="form-group">
     <label for="login"></label>
     <input type="text" name="lg" class="form-control"/>
