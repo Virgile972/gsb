@@ -1,14 +1,19 @@
-<h1>
-    {{titre}}
-</h1>
-<form class="col-lg-6" name="frmLogin" (ngSubmit)="valider()" >
-    <div class="form-group">
-    <label for="login"></label>
-    <input type="text" name="lg" class="form-control"/>
-    </div>
-    <div class="form-group">
-    <label for="mdp"></label>
-    <input type="password" name="motdepasse" class="form-control"/>
-    </div>
-    <button type="submit">Valider</button>
-    
+<label for="login">Login :</label> <!-- Label pour le champ de saisie du login -->
+<br />
+<br />
+<input class="input" type="text" name="login" id="login" [(ngModel)]="login" placeholder=" Saisir votre login" autofocus /> <!-- Champ de saisie du login avec une aide visuelle -->
+<br />
+<br />
+<div class="group">
+    <label for="password">Password : </label> <!-- Label pour le champ de saisie du mot de passe -->
+    <br />
+    <br />
+    <input class="input" type="password" name="mdp" id="mdp" [(ngModel)]="mdp" placeholder=" Saisir votre mot de passe" /> <!-- Champ de saisie du mot de passe avec une aide visuelle -->
+</div>
+<div class="alert" [hidden]="estCache">{{lblMessage}}</div> <!-- Zone d'affichage des messages d'erreur ou de confirmation -->
+<br />
+<div class="alert">
+<form class="group" name="frmLogin" (ngSubmit)="valider()">
+    <button class="button" type="submit">Se connecter</button> <!-- Bouton de soumission du formulaire de connexion -->
+</form>
+</div>

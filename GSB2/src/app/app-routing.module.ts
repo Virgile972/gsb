@@ -6,7 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 
 const routes: Routes = [
-{ path: 'connexion', component: ConnexionComponent },
+{ path: '', component: ConnexionComponent },
 { path: 'medecins', component: MedecinsComponent },
 { path: 'visites', component: VisitesComponent },
 { path: 'accueil', component: NavbarComponent }

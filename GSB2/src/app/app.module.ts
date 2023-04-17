@@ -8,9 +8,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MedecinsComponent } from './medecins/medecins.component';
 import { VisitesComponent } from './visites/visites.component';
-import { ServicesComponent } from './services/services.component';
 import {HttpClientModule} from '@angular/common/http'
-import { DataService } from './data.service';
+import { DataService } from './services/data.service';
+
 
 
 
@@ -21,7 +21,6 @@ import { DataService } from './data.service';
     NavbarComponent,
     MedecinsComponent,
     VisitesComponent,
-    ServicesComponent
   ],
   imports: [
     BrowserModule,

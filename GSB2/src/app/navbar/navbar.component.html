@@ -1,7 +1,23 @@
-<nav class="navbar">
+<!--<nav class="navbar">
 <ul class="nav navbar-nav" style="display:flex; flex-direction: row;
 justify-content: center">
 <li><a [routerLink]=" ['/visites']" > Gestion des rapports</a></li>
 <li><a [routerLink]="['/medecins']" >Gestion des médecins</a></li>
 </ul>
-</nav>
+</nav>-->
+<h2>
+    Les médecins
+</h2>
+<nav class="navbar navbar-inverse" [hidden]="estCacheMenu">
+    <ul class="nav navbar-nav" style="display:flex; flex-direction:row; justify-content: center">
+        <li><a (click)="derniersRapport()">Derniers rapports</a></li>
+        <li><a (click)="majMedecins()">MAJ</a> </li>    
+    </ul>
+</nav> 
+
+<div class="col-lg-6">
+   <div class="form-group">
+       <input type="search" placeholder="Nom du médecin..."
+       [(ngModel)]="nomMedecins" (keyup)="charger()"/>
+   </div>
+</div>
